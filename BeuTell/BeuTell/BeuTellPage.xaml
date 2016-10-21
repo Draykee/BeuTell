@@ -1,4 +1,27 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:BeuTell" x:Class="BeuTell.BeuTellPage">
-	<Label Text="Welcome to Xamarin Forms!" VerticalOptions="Center" HorizontalOptions="Center" />
+	<Grid>
+		
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="20" />
+			<RowDefinition Height="100" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+	<Button Text="Live" Grid.Row="0" Grid.Column="0" />
+	<Button Text="Top" Grid.Row="0" Grid.Column="1" />
+	<ListView x:Name = "newListView"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+	<Label  Text="     Ask a question:" Grid.Row="2" Grid.ColumnSpan = "2" />
+	<Editor Text="" Grid.Row="3" Grid.ColumnSpan = "2" />
+
+	</Grid>
+
+	<!--
+	data binding 
+	-->
 </ContentPage>
