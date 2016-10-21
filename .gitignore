@@ -250,3 +250,31 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+#Android
+# built application files
+*.apk
+*.ap_
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+
+# lint folder
+lint
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+classes/
+gen-external-apklibs/
+
+# maven output folder
+target
+
+# Local configuration file (sdk path, etc)
+local.properties
