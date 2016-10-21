@@ -23,5 +23,19 @@ namespace BeuTell.Server
         //All Channels
         public IDictionary<int, Channel> Channels { get; } = new Dictionary<int, Channel>();
 
+        private  void InitChannel()
+        {
+            for( int i = 0; i < 4; i++)
+            {
+                Channels.Add(i, new Channel(i, "Fachbreich" + i ) );
+            }
+            var next = Channels.Values.Count;
+            var channel = new Channel(next, "ChildChannel");
+            channel.AddChildById(0);
+            Channels.Add(next, channel);
+
+            
+        }
+
     }
 }

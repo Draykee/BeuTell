@@ -5,6 +5,13 @@ namespace BeuTell.Models
 {
     public class Channel
     {
+
+        public Channel(int ID, string Title)
+        {
+            this.ID = ID;
+            this.Title = Title;
+        }
+
         //Id of the channel
         public int ID { get; set; }
 
@@ -16,6 +23,16 @@ namespace BeuTell.Models
 
         //List of IDs of childs
         public List<int> ChildContainer { get; set; }
+
+        public void AddChild(Channel aChannel)
+        {
+            ChildContainer.Add(aChannel.ID);
+        }
+
+        public void AddChildById(int ID)
+        {
+            this.ID = ID;
+        }
 
     }
 }
