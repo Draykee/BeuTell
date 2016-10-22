@@ -38,6 +38,7 @@
     <Compile Include="BeuTellPage.xaml.cs">
       <DependentUpon>BeuTellPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataHandler.cs" />
     <Compile Include="Models\Channel.cs" />
     <Compile Include="Models\ChatMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

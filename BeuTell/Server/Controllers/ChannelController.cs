@@ -19,31 +19,31 @@ namespace BeuTell.Server.Controllers
             this._data = DataRepository.getInstance();
         }
 
-        // GET: api/ChatMessage
+        // GET: api/Channel
         public IEnumerable<Channel> Get()
         {
             return _data.Channels.Values;
         }
 
-        // GET: api/ChatMessage/5
+        // GET: api/Channel/5
         public Channel Get(int id)
         {
             return _data.Channels[id];
         }
 
-        // POST: api/ChatMessage
+        // POST: api/Channel
         public void Post([FromBody]Channel value)
         {
             _data.Channels.Add(value.ID,value);
         }
 
-        // PUT: api/ChatMessage/5
+        // PUT: api/Channel/5
         public void Put(int id, [FromBody]Channel value)
         {
             _data.Channels[id] = value;
         }
 
-        // DELETE: api/ChatMessage/5
+        // DELETE: api/Channel/5
         public void Delete(int id)
         {
             _data.Channels.Remove(id);
