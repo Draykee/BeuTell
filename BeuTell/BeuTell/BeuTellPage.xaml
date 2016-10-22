@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:BeuTell" x:Class="BeuTell.BeuTellPage">
 	<Grid>
 		<Grid.RowDefinitions>
-			<RowDefinition Height="40" />
+			<RowDefinition Height="60" />
 			<RowDefinition Height="*" />
 			<RowDefinition Height="20" />
 			<RowDefinition Height="100" />
@@ -16,7 +16,7 @@
 		<Button Text="Live" Grid.Row="0" Grid.Column="0" />
 		<Button Text="Top" Grid.Row="0" Grid.Column="1" />
 	
-		<Picker x:Name="channelPIC" SelectedIndex = "1" Grid.Row="0" Grid.Column="2" >
+		<Picker x:Name="channelPIC"  Grid.Row="0" Grid.Column="2" >
        		<Picker.Items> 
 				<x:String>Beuth</x:String> 
            		<x:String>FB I</x:String> 

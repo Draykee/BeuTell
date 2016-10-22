@@ -8,10 +8,10 @@ namespace BeuTell.Models
         public ChatMessage(string aText)
         {
             Text = aText;
-            GUID = new Guid().ToString();
+			GUID =  Guid.NewGuid().ToString();
             ParentGUID = null;
             Level = 0;
-            TimeStamp = "nan"; //TODO!
+			TimeStamp = DateTime.Now.ToString();
         }
 
         // The Text the message contained.

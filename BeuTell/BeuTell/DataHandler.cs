@@ -10,15 +10,15 @@ namespace BeuTell
     class DataHandler
     {
 
-        private const string CHANNEL = "beutellserver.azurewebsites.net/api/Channel";
-        private const string MESSAGE = "beutellserver.azurewebsites.net/api/ChatMessage";
+        private const string CHANNEL = "http://beutelldata.azurewebsites.net/api/Channel";
+        private const string MESSAGE = "http://beutelldata.azurewebsites.net/api/ChatMessage";
 
         //----- Singelton ----------------------------------
         private static DataHandler instance = null;
 
         public static DataHandler getInstance()
         {
-            if (instance != null)
+            if (instance == null)
                 instance = new DataHandler();
             return instance;
         }
@@ -65,11 +65,13 @@ namespace BeuTell
 
             var json = JsonConvert.SerializeObject(aMessage).ToString();
 
-            var write = await http.PutAsync(MESSAGE + "/" + aChannelID,  new StringContent(json) );
+			//var write = await http.PostAsync(MESSAGE + "/" + aChannelID,  new StringContent(json) );
+
+			var write = await http.PostAsync(MESSAGE, new StringContent(json));
 
             if(!write.IsSuccessStatusCode)
             {
-                //Error
+                //Error!!!!!
             }
         }
     }

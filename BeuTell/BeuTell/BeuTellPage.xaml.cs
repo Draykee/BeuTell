@@ -54,7 +54,7 @@ namespace BeuTell
 						     
 			var message = new ChatMessage(editor.Text);
 
-			await DataHandler.getInstance().sendMessage(selectedIndex, message);
+			await DataHandler.getInstance().sendMessage(0, message);
 
 
 			//var textVariable = editor.Text;
