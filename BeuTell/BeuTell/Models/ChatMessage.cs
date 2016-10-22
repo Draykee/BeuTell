@@ -10,7 +10,7 @@ namespace BeuTell.Models
         // An unique identificator
         public string GUID;
 
-        // A trace to the parent ChatMessage in case of an awnser
+        // A trace to the parent ChatMessage in case of an answer
         public string ParentGUID { get; set; }
 
         // A Actual level (depth of replies)

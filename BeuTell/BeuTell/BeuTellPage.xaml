@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:BeuTell" x:Class="BeuTell.BeuTellPage">
 	<Grid>
-		
 		<Grid.RowDefinitions>
 			<RowDefinition Height="40" />
 			<RowDefinition Height="*" />
@@ -9,19 +8,31 @@
 			<RowDefinition Height="100" />
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
-			
 			<ColumnDefinition Width="*" />
 			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="60" />
 		</Grid.ColumnDefinitions>
-	<Button Text="Live" Grid.Row="0" Grid.Column="0" />
-	<Button Text="Top" Grid.Row="0" Grid.Column="1" />
-	<ListView x:Name = "newListView"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
-	<Label  Text="     Ask a question:" Grid.Row="2" Grid.ColumnSpan = "2" />
-	<Editor Text="" Grid.Row="3" Grid.ColumnSpan = "2" />
-
+		
+		<Button Text="Live" Grid.Row="0" Grid.Column="0" />
+		<Button Text="Top" Grid.Row="0" Grid.Column="1" />
+	
+		<Picker x:Name="IndustryTypePicker1" Title = "Beuth" Grid.Row="0" Grid.Column="2" >
+       		<Picker.Items> 
+           		<x:String>FB I</x:String> 
+          		<x:String>FB II</x:String>
+				<x:String>FB III</x:String> 
+				<x:String>FB IV</x:String> 
+				<x:String>FB V</x:String> 
+				<x:String>FB VI</x:String> 
+				<x:String>FB VII</x:String> 
+				<x:String>FB VIII</x:String> 
+       		</Picker.Items>
+   		</Picker>
+		
+		<ListView x:Name = "newListView"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+			<TextCell Text="{Binding Name}" />
+		</ListView>
+		<Label  Text="     Ask a question:" Grid.Row="2" Grid.ColumnSpan = "3" />
+		<Editor x:Name = "editor" Grid.Row="3" Grid.ColumnSpan = "3" />
 	</Grid>
-
-	<!--
-	data binding 
-	-->
 </ContentPage>
