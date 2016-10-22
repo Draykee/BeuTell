@@ -31,7 +31,7 @@ namespace BeuTell.Models
 
         public void AddChildById(int ID)
         {
-            this.ID = ID;
+            //this.ID = ID;//TODO
         }
 
     }

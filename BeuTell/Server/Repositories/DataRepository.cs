@@ -11,7 +11,11 @@ namespace BeuTell.Server
         public static DataRepository getInstance()
         {
             if (Instance == null)
+            {
                 Instance = new DataRepository();
+                //for testing
+                Instance.InitChannel();
+            }
             return Instance;
         }
 
@@ -27,14 +31,15 @@ namespace BeuTell.Server
         {
             for( int i = 0; i < 4; i++)
             {
-                Channels.Add(i, new Channel(i, "Fachbreich" + i ) );
+                Channels.Add(i, new Channel(i, "Fachbereich" + i ) );
             }
-            var next = Channels.Values.Count;
-            var channel = new Channel(next, "ChildChannel");
-            channel.AddChildById(0);
-            Channels.Add(next, channel);
-
-            
+            var child = Channels.Count;
+            var cChannel = new Channel(child, "ChildChannel");
+            Channels.Add(child, cChannel);
+            var parent = Channels.Count;
+            var pChannel = new Channel(parent, "ParentChannel");
+            pChannel.AddChildById(cChannel.ID);
+            Channels.Add(parent, pChannel);
         }
 
     }
