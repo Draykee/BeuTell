@@ -39,13 +39,6 @@ namespace BeuTell
 
 		private async void OnCompleted(object sender, EventArgs e)
 		{
-			//var selectedIndex = channelPIC.Items[channelPIC.SelectedIndex];
-
-			//channelPIC.SelectedIndexChanged += (sender, e) =>
-			//{
-			//	var selectedIndex = channelPIC.Items[channelPIC.SelectedIndex];
-			//};
-
 			int selectedIndex=channelPIC.SelectedIndex;
 
 			if (selectedIndex == -1) {
@@ -56,31 +49,6 @@ namespace BeuTell
 
 			await DataHandler.getInstance().sendMessage(0, message);
 
-
-			//var textVariable = editor.Text;
-			//var date = DateTime.Now;
-
-			//var httpClient = new HttpClient();
-
-			//httpClient.BaseAddress = new Uri("http://beutellserver.azurewebsites.net/api/ChatMessage");
-
-			//var url = "http://beutellserver.azurewebsites.net/api/ChatMessage";
-
-			//string json = new ChatMessage
-
-			//string jsonData = "{"Text" : "+" + textVarhhhhiable + "GUID : \"agn466643\", \n\t\t\t\"ParentGUID\" : \"afa99sdfs\", \"TimeStamp\" : \"date\", \"Level\" : 0}";
-
-			//var webClient = new WebClient();
-
-			//httpClient.PostAsync(url, jsonData);
-
-			//var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-
-			//httpClient.PostAsync(url, content);
-
-			//HttpResponseMessage response = await client.PostAsync("/foo/login", content);
-
-			//var response = await httpClient.PostAsync(url, jsonData);
 		}
 
         private async Task LoadMessages()
@@ -103,7 +71,8 @@ namespace BeuTell
 
 			messages.Clear();
 
-            foreach(ChatMessage message in data)
+			var list = await DataHandler.getInstance().getAllMessages();
+			foreach(var message in list)
             {
                 messages.Add(new Data(message.Text) );
             }

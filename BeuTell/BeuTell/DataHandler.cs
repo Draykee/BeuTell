@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using BeuTell.Models;
 using Newtonsoft.Json;
 using System.Net.Http;
+using System.Diagnostics.Contracts;
+using System.Text;
 
 namespace BeuTell
 {
@@ -61,17 +63,16 @@ namespace BeuTell
         //Sends message to channel
         public async Task sendMessage(int aChannelID, ChatMessage aMessage)
         {
-            var http = new HttpClient();
+			Contract.Ensures(Contract.Result<Task>() != null);
+			var http = new HttpClient();
 
             var json = JsonConvert.SerializeObject(aMessage).ToString();
 
-			//var write = await http.PostAsync(MESSAGE + "/" + aChannelID,  new StringContent(json) );
-
-			var write = await http.PostAsync(MESSAGE, new StringContent(json));
+			var write = await http.PostAsync("http://beutelldata.azurewebsites.net/api/channel/"+aChannelID+"/messages", new StringContent(json, Encoding.UTF8, "application/json"));
 
             if(!write.IsSuccessStatusCode)
             {
-                //Error!!!!!
+                //Error
             }
         }
     }
