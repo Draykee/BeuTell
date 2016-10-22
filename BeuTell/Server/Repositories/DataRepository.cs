@@ -19,19 +19,19 @@ namespace BeuTell.Server
             return Instance;
         }
 
-        private DataRepository(){}
+        private DataRepository() { }
 
         //All available Mesasges
-        public IDictionary<string, ChatMessage> Messages {get;} = new Dictionary<string, ChatMessage>();
+        public IDictionary<string, ChatMessage> Messages { get; } = new Dictionary<string, ChatMessage>();
 
         //All Channels
         public IDictionary<int, Channel> Channels { get; } = new Dictionary<int, Channel>();
 
-        private  void InitChannel()
+        private void InitChannel()
         {
-            for( int i = 0; i < 4; i++)
+            for (int i = 0; i < 4; i++)
             {
-                Channels.Add(i, new Channel(i, "Fachbereich" + i ) );
+                Channels.Add(i, new Channel(i, "Fachbereich" + i));
             }
             var child = Channels.Count;
             var cChannel = new Channel(child, "ChildChannel");
@@ -41,6 +41,6 @@ namespace BeuTell.Server
             pChannel.AddChildById(cChannel.ID);
             Channels.Add(parent, pChannel);
         }
-
     }
+    
 }
