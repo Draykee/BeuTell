@@ -4,6 +4,16 @@ namespace BeuTell.Models
 {
     public class ChatMessage
     {
+
+        public ChatMessage(string aText)
+        {
+            Text = aText;
+            GUID = new Guid().ToString();
+            ParentGUID = null;
+            Level = 0;
+            TimeStamp = "nan"; //TODO!
+        }
+
         // The Text the message contained.
         public string Text { get; set; }
 
