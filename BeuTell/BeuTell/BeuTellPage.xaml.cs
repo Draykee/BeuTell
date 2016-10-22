@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using BeuTell.Models;
 using System;
 using System.Text;
+using System.Diagnostics;
 
 namespace BeuTell
 {
@@ -27,7 +28,6 @@ namespace BeuTell
 			});
 
 			editor.Completed += OnCompleted;
-			//ChooseBtn.Clicked += ChooseBtnClicked;
 		}
 
 		protected async override void OnAppearing()
@@ -37,24 +37,34 @@ namespace BeuTell
 			await LoadMessages();
 		}
 
-		private void ChooseBtnClicked(object sender, EventArgs e) 
-		{ 
-			//newListView
-		}
-
-
 		private async void OnCompleted(object sender, EventArgs e)
 		{
-			var textVariable = editor.Text;
-			var date = DateTime.Now;
+			//var selectedIndex = channelPIC.Items[channelPIC.SelectedIndex];
 
-			var httpClient = new HttpClient();
+			//channelPIC.SelectedIndexChanged += (sender, e) =>
+			//{
+			//	var selectedIndex = channelPIC.Items[channelPIC.SelectedIndex];
+			//};
+
+			int selectedIndex=channelPIC.SelectedIndex;
+
+			if (selectedIndex == -1) {
+				selectedIndex = 0;
+			}
+						     
+			var message = new ChatMessage(editor.Text);
+
+			await DataHandler.getInstance().sendMessage(selectedIndex, message);
 
 
+			//var textVariable = editor.Text;
+			//var date = DateTime.Now;
+
+			//var httpClient = new HttpClient();
 
 			//httpClient.BaseAddress = new Uri("http://beutellserver.azurewebsites.net/api/ChatMessage");
 
-			var url = "http://beutellserver.azurewebsites.net/api/ChatMessage";
+			//var url = "http://beutellserver.azurewebsites.net/api/ChatMessage";
 
 			//string json = new ChatMessage
 
@@ -64,16 +74,11 @@ namespace BeuTell
 
 			//httpClient.PostAsync(url, jsonData);
 
-			var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+			//var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
 
-
-			httpClient.PostAsync(url, content);
-
+			//httpClient.PostAsync(url, content);
 
 			//HttpResponseMessage response = await client.PostAsync("/foo/login", content);
-
-
-
 
 			//var response = await httpClient.PostAsync(url, jsonData);
 		}
@@ -84,7 +89,7 @@ namespace BeuTell
             var httpClient = new HttpClient();
 
             // raw request just headers
-            var response = await httpClient.GetAsync("http://beutellserver.azurewebsites.net/api/ChatMessage");
+            var response = await httpClient.GetAsync("http://beutelldata.azurewebsites.net/api/ChatMessage");
 
             // check headers 20x
             response.EnsureSuccessStatusCode();

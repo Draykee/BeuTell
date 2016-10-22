@@ -37,6 +37,8 @@ namespace Server.Controllers
         public void Put(int channelId, [FromBody]ChatMessage value)
         {
             _data.Channels[channelId].AddMessage(value);
+			_data.Messages.Add(value.GUID, value);
+
         }
 
         // DELETE: api/ChatMessage/5

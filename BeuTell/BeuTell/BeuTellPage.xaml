@@ -16,8 +16,9 @@
 		<Button Text="Live" Grid.Row="0" Grid.Column="0" />
 		<Button Text="Top" Grid.Row="0" Grid.Column="1" />
 	
-		<Picker x:Name="IndustryTypePicker1" Title = "Beuth" Grid.Row="0" Grid.Column="2" >
+		<Picker x:Name="channelPIC" SelectedIndex = "1" Grid.Row="0" Grid.Column="2" >
        		<Picker.Items> 
+				<x:String>Beuth</x:String> 
            		<x:String>FB I</x:String> 
           		<x:String>FB II</x:String>
 				<x:String>FB III</x:String> 
