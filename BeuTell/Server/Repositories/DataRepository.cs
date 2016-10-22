@@ -42,5 +42,12 @@ namespace BeuTell.Server
             Channels.Add(parent, pChannel);
         }
 
+        public void addMessageToChannel(int channelID, ChatMessage message)
+        {
+            if(Channels.ContainsKey(channelID))
+            {
+                Channels[channelID].AddMessage(message);
+            }
+        }
     }
 }

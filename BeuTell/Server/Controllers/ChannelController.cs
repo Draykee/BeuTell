@@ -16,7 +16,7 @@ namespace BeuTell.Server.Controllers
 
         public ChannelController()
         {
-            this._data = DataRepository.getInstance();
+            _data = DataRepository.getInstance();
         }
 
         // GET: api/ChatMessage
