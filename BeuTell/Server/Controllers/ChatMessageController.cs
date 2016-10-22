@@ -34,9 +34,9 @@ namespace Server.Controllers
         }
 
         // PUT: api/ChatMessage/5
-        public void Put(int channelId, [FromBody]ChatMessage value)
+        public void Put(string guid, [FromBody]ChatMessage value)
         {
-            _data.addMessageToChannel(channelId, value);
+            _data.Messages[guid] = value;
         }
 
         // DELETE: api/ChatMessage/5

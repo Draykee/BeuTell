@@ -19,10 +19,10 @@ namespace BeuTell.Models
         public string Title { get; set; }
 
         //Container with message GUIDs
-        public List<string> MessageContainer { get; } = new List<string>();
+        public List<string> MessageContainer { get; set; }
 
         //List of IDs of childs
-        public List<int> ChildContainer { get; } = new List<int>();
+        public List<int> ChildContainer { get; set; }
 
         public void AddChild(Channel aChannel)
         {
@@ -31,12 +31,7 @@ namespace BeuTell.Models
 
         public void AddChildById(int ID)
         {
-            ChildContainer.Add(ID);
-        }
-
-        public void AddMessage(ChatMessage aMessage)
-        {
-            MessageContainer.Add(aMessage.getGUIDString());
+            //this.ID = ID;//TODO
         }
 
     }
